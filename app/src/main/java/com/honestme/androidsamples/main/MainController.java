@@ -1,36 +1,37 @@
 package com.honestme.androidsamples.main;
 
-import com.google.common.base.Preconditions;
-import com.honestme.androidsamples.BaseController;
-import com.honestme.androidsamples.login.LoginController;
-import com.honestme.androidsamples.movie.MovieController;
+import com.honestme.androidsamples.BaseUiController;
 
 /**
  * Created by Administrator on 2015/11/30 0030.
  */
-public class MainController extends BaseController {
-    MovieController mMovieController;
-    LoginController mUserController;
+public class MainController
+        extends BaseUiController<MainController.MainUi,MainController.MainUiCallbacks> {
 
-    public MainController(MovieController movieController,LoginController userController){
-        mMovieController = Preconditions.checkNotNull(movieController,"movieController can't be null");
-        mUserController = Preconditions.checkNotNull(userController,"usercontroller can't be null");
+
+    public interface MainUi extends BaseUiController.Ui<MainUiCallbacks>{}
+
+    public interface MainUiCallbacks{}
+
+    public MainController(){
 
     }
 
-    public MovieController getMovieController(){
-        return  mMovieController;
+    @Override
+    protected MainUiCallbacks createUiCallBacks() {
+        return new MainUiCallbacks() {
+        };
     }
 
     @Override
     protected boolean onInited() {
-        return mMovieController.init() && mUserController.init();
+        return super.init();
     }
 
     @Override
     protected boolean onSuspended() {
 
-        return mMovieController.suspend();
+        return super.suspend();
 
     }
 }

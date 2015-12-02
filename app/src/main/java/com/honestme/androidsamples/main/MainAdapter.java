@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.honestme.androidontouchsystem.R;
+import com.honestme.androidsamples.R;
 
 import java.util.List;
 
@@ -16,7 +16,8 @@ import java.util.List;
  */
 public class MainAdapter extends BaseAdapter {
 
-    List<MainModel> mModels;
+    List<MainListItem> mItems;
+
     private Context mContext;
     private LayoutInflater mLayoutInflater;
 
@@ -28,8 +29,8 @@ public class MainAdapter extends BaseAdapter {
 
     }
 
-    public void setmModels(List<MainModel> models){
-        mModels = models;
+    public void setItems(List<MainListItem> items){
+        mItems = items;
     }
 
     @Override
@@ -55,11 +56,12 @@ public class MainAdapter extends BaseAdapter {
             mTextView = viewHolder.mTextView;
         }else{
             convertView = mLayoutInflater.inflate(R.layout.main_list_item,null);
-            mTextView = (TextView)convertView.findViewById(R.id.main_list_item_textview);
+            mTextView = (TextView)convertView.findViewById(R.id.listview_main_textview);
             viewHolder = new ViewHolder(mTextView);
             convertView.setTag((Object)viewHolder);
         }
 
+        mTextView.setText(mItems.get(position).getName());
 
         return null;
     }
