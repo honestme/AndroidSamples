@@ -61,12 +61,18 @@ public class MainActivity extends BaseActivity implements ListView.OnItemClickLi
         switch (mItems.get(position).getName()){
             case "check user-permissions":
                 mMainDisplay.showCheckPermissions();
+                break;
+            case "share infomation":
+                mMainDisplay.showShareInfo();
+                break;
         }
     }
 
     public void setItems(){
         MainListItem item1 = new MainListItem("check user-permissions");
         mItems.add(item1);
+        MainListItem item2 = new MainListItem("share infomation");
+        mItems.add(item2);
     }
 
 

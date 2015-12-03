@@ -53,5 +53,5 @@ public class BaseActivity extends AppCompatActivity implements BaseUiController.
 
     }
 
-
+    //protected void startActionIntent(Context context){}
 }

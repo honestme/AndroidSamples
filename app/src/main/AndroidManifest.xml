@@ -23,6 +23,19 @@
         </activity>
 
         <activity android:name=".favourite.FavListActivity"></activity>
+        <activity android:name=".shareinfo.ShareInfoActivity"></activity>
+        <activity android:name=".shareinfo.ReceiveActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+                <data android:mimeType="image/*"></data>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+                <data android:mimeType="text/plain"></data>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
